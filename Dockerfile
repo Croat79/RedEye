@@ -19,7 +19,7 @@ RUN npx pkg-fetch --platform linux --node-range node16
 RUN yarn run release --platform=linux
 
 ### CORE IMAGE ###
-FROM ubuntu as redeye-core
+FROM ubuntu:kinetic as redeye-core
 WORKDIR /app
 COPY --from=redeye-linux-builder /app/release/linux .
 ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
